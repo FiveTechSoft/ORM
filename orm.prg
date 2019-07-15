@@ -20,6 +20,8 @@ function Main()
 
    local oOrm, oTable
 
+   SetMode( 60, 120 )
+
    OrmConnect( "MYSQL", "localhost", "harbour", "password", "dbHarbour", 3306 )
    // OrmConnect()
 
@@ -73,12 +75,17 @@ METHOD New( cRdbms, cServer, cUsername, cPassword, cDatabase, nPort ) CLASS Orm
          else
             pLib = hb_LibLoad( "libmysql.dll" )
          endif  
+         Alert( ValType( pLib ) )
          if ! Empty( pLib )
             hMySQL = mysql_init()
             if hMySQL != 0
                ::hConnection = mysql_real_connect( cServer, cUsername, cPassword, cDatabase, nPort )
-               Alert( ::hConnection == hMySQL )
-            endif   
+               Alert( If( ::hConnection == hMySQL, "ok", "error" ) )
+            else
+               Alert( Str( hMySQL ) )   
+            endif 
+         else
+            Alert( "pLib is empty" )     
          endif   
    endcase
 
