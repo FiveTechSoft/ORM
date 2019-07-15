@@ -6,9 +6,9 @@
         {
             "label": "run",
             "type": "shell",
-            "command": "${workspaceFolder}/build.bat",
+            "command": "/Users/$USER/harbour/bin/darwin/clang/hbmk2",
             "args": [
-                "${workspaceFolder}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/${fileBasenameNoExtension}.prg"
             ],
             "presentation": {
                 "echo": true,
@@ -21,10 +21,11 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         },
         {
-            "label": "CompileRelease",
+            "label": "debug",
             "type": "shell",
             "command": "${workspaceFolder}\\BuildEXE.bat",
             "args": [
@@ -38,23 +39,6 @@
                 "showReuseMessage": false,
                 "clear": true
             }
-        },
-        {
-            "label": "RunRelease",
-            "dependsOn": [
-                "CompileRelease"
-            ],
-            "type": "shell",
-            "command": "${workspaceFolder}\\release\\HelloHarbour.exe",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": true
-            },
-            "problemMatcher": []
         }
     ]
 }
