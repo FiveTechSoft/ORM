@@ -73,7 +73,7 @@ METHOD New( cRdbms, cServer, cUsername, cPassword, cDatabase, nPort ) CLASS Orm
          if ! "Windows" $ OS()
             pLib = hb_LibLoad( "/usr/lib/x86_64-linux-gnu/libmysqlclient.so" ) // libmysqlclient.so.20 for mariaDB
          else
-            pLib = hb_LibLoad( "libmysql.dll" )
+            pLib = hb_LibLoad( "c:/Apache24/htdocs/libmysql.dll" )
          endif  
          Alert( ValType( pLib ) )
          if ! Empty( pLib )
